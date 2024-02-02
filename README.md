@@ -1,6 +1,7 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You should create the .env file in the root of the project with the API KEY necessary.
 
 ## Available Scripts
 
