@@ -12,12 +12,22 @@ const App = () => {
     fetchIpInfo();
   }, []);
 
+  const getQueryParam = (query) => {
+    if (query) {
+      // Check if the query is an IP address or a domain
+      const isIpAddress = /^\d+\.\d+\.\d+\.\d+$/.test(query);
+      const paramKey = isIpAddress ? "ipAddress" : "domain";
+      return `${paramKey}=${query}`;
+    }
+    return "";
+  };
+
   const fetchIpInfo = async (ipAddress) => {
     try {
       const response = await fetch(
-        `https://geo.ipify.org/api/v1?apiKey=${
+        `https://geo.ipify.org/api/v2/country?apiKey=${
           process.env.REACT_APP_API_KEY
-        }&ipAddress=${ipAddress || ""}`
+        }&${getQueryParam(ipAddress)}`
       );
       const data = await response.json();
       setIpInfo(data);

@@ -10,7 +10,12 @@ const LeafletMap = ({ ipInfo }) => {
   useEffect(() => {
     let map;
 
-    if (ipInfo && ipInfo.location) {
+    if (
+      ipInfo &&
+      ipInfo.location &&
+      ipInfo.location.lat &&
+      ipInfo.location.lng
+    ) {
       const { lat, lng } = ipInfo.location;
       map = L.map(mapRef.current).setView([lat, lng], 13);
 
