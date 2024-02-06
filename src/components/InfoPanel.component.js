@@ -33,11 +33,11 @@ const InfoPanel = ({ ipInfo }) => {
             <InfoPanelStat label={"IP Address"} value={ipInfo.ip} />
             <InfoPanelStat
               label={"Location"}
-              value={`${ipInfo.location.city}, ${ipInfo.location.region} ${ipInfo.location.postalCode}`}
+              value={`${ipInfo.location?.city}, ${ipInfo.location?.region} ${ipInfo.location?.postalCode}`}
             />
             <InfoPanelStat
               label={"Timezone"}
-              value={ipInfo.location.timezone}
+              value={ipInfo.location?.timezone}
             />
             <InfoPanelStat label={"ISP"} value={ipInfo.isp} />
           </Flex>
